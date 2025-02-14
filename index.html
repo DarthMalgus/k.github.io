@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo contigo ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            color: #54bada;
+            font-size: 5vw;
+            margin: 20px 10px;
+        }
+        #contador {
+            font-size: 4vw;
+            margin-top: 20px;
+        }
+        img {
+            width: 90%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 4vw;
+            color: #555;
+            margin: 20px;
+            padding: 10px;
+        }
+        .floating-text {
+            position: absolute;
+            font-size: 2em;
+            color: red;
+            animation: floatUp 2s linear forwards;
+        }
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh);
+            }
+        }
+    </style>
+</head>
+<body onclick="showLoveMessage(event)">
+    <h1>Tiempo ccontigo ❤️</h1>
+    <img src="KyM.jpeg" alt="Nosotros">
+    <div id="contador"></div>
+    <p>Gracias por enseñarme que el amor se alimenta de lo inesperado, de lo que no podemos predecir ni calcular y de lo que sólo puede sentirse viviendo intensamente el presente. No importa lo que pasé ni lo que haya pasado, sé que en este momento estamos juntos. TE AMO ❤️</p>
+
+    <script>
+        function actualizarContador() {
+            const inicio = new Date("2021-07-09T18:45:00"); // Cambia la fecha de inicio
+            const ahora = new Date();
+            let diferencia = ahora - inicio;
+
+            let segundos = Math.floor((diferencia / 1000) % 60);
+            let minutos = Math.floor((diferencia / 1000 / 60) % 60);
+            let horas = Math.floor((diferencia / 1000 / 60 / 60) % 24);
+            let dias = Math.floor(diferencia / 1000 / 60 / 60 / 24);
+            let meses = Math.floor(dias / 30);
+            let años = Math.floor(meses / 12);
+
+            document.getElementById("contador").innerHTML = 
+                `${años} años, ${meses % 12} meses, ${dias % 30} días, ${horas}h ${minutos}m ${segundos}s`;
+        }
+
+        setInterval(actualizarContador, 1000);
+
+        function showLoveMessage(event) {
+            const message = document.createElement("div");
+            message.classList.add("floating-text");
+            message.innerHTML = "❤️";
+            document.body.appendChild(message);
+
+            message.style.left = `${event.clientX}px`;
+            message.style.top = `${event.clientY}px`;
+
+            setTimeout(() => {
+                message.remove();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
