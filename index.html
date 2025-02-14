@@ -8,13 +8,13 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            background-color: #ffe6e6;
+            background-color: #62b9d3;
             margin: 0;
             padding: 0;
             overflow: hidden;
         }
         h1 {
-            color: #54bada;
+            color: #000405;
             font-size: 5vw;
             margin: 20px 10px;
         }
@@ -37,7 +37,7 @@
         .floating-text {
             position: absolute;
             font-size: 2em;
-            color: red;
+            color: gray;
             animation: floatUp 2s linear forwards;
         }
         @keyframes floatUp {
@@ -53,7 +53,7 @@
     </style>
 </head>
 <body onclick="showLoveMessage(event)">
-    <h1>Tiempo ccontigo ❤️</h1>
+    <h1>Tiempo contigo ❤️</h1>
     <img src="KyM.jpeg" alt="Nosotros">
     <div id="contador"></div>
     <p>Gracias por enseñarme que el amor se alimenta de lo inesperado, de lo que no podemos predecir ni calcular y de lo que sólo puede sentirse viviendo intensamente el presente. No importa lo que pasé ni lo que haya pasado, sé que en este momento estamos juntos. TE AMO ❤️</p>
@@ -80,7 +80,7 @@
         function showLoveMessage(event) {
             const message = document.createElement("div");
             message.classList.add("floating-text");
-            message.innerHTML = "❤️";
+            message.innerHTML = "Te amo Martin❤️";
             document.body.appendChild(message);
 
             message.style.left = `${event.clientX}px`;
